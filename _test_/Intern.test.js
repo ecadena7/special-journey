@@ -1,11 +1,11 @@
-const Engineer = require('../lib/Engineer');
+const Intern = require('../lib/Intern');
 
-test('Did we get a Github link?', () => {
-    const person = new Engineer('Jake', 3, 'jakethedog@adventuretime.com', 'jake12')
-    expect(person.getGithub()).toBe('jake12')
+test('Did we get the school?', () => {
+    const person = new Intern('Marceline', 5, 'MarcelineVQ@adventuretime.com', 'Ooo University')
+    expect(person.getSchool()).toBe('Ooo University')
 })
 
-test('Did we get an employee?', () => {
-    const person = new Engineer('Jake', 3, 'jakethedog@adventuretime.com', 'jake12')
-    expect(person.getRole()).toBe('Engineer')
+test('Did we get their role(Intern)?', () => {
+    const person = new Intern('Marceline', 5, 'MarcelineVQ@adventuretime.com', 'Ooo University')
+    expect(person.getRole()).toBe('Intern')
 })

@@ -21,7 +21,7 @@ test('Did we get an email?', () => {
     expect(person.getEmail()).toBe('zebra.horse@gmail.com')
 });
 
-test('Did we get an employee?', () => {
+test('Did we get their role(employee)?', () => {
     const person = new Employee('Zebra', 1, 'zebra.horse@gmail.com')
     expect(person.getRole()).toBe('employee')
 })
