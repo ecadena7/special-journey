@@ -3,6 +3,7 @@ const fs = require('fs')
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
+const renderHTML = require("./src/generateHTML");
 
 
 
@@ -20,3 +21,5 @@ const Engineer = require("./lib/Engineer");
 // TODO function to add an employee(mgmt)
 
 // TODO function to call init();
+
+// TODO functions asking for 
