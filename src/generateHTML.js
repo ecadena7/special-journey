@@ -1,6 +1,6 @@
 
 
-function renderHTML({name, id, email, school }) {
+function renderHTML({ name, id, email, school }) {
 //create a for loop for the employee array
 //create a card for each employee in the array
 //add the cards in my html code

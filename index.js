@@ -35,7 +35,10 @@ const addIntern = () => {
         name: 'school',
         message: 'Enter the name of the interns school.'
     }
-]);
+]).then(answers => {
+    let intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+    employee.push(intern)
+})
 };
 // TODO Question to add an engineer
 const addEngineer = () => {
@@ -60,28 +63,31 @@ const addEngineer = () => {
         name: 'github',
         message: 'Provide the Engineers github id'
     }
-]);
+]).then(answers => {
+    let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+    employee.push(engineer)
+})
 };
-// TODO Question to add an employee(non-mgmt) 
-const addEmpl = () => {
-    return inquirer.prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: 'Provide the Employees full name?'
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: 'Enter the Employees employee id.'
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'Enter the Employee email address.'
-    },
-]);
-};
+// TODO Question to add an employee(non-mgmt)--- should this be the starting point and to an if/else statement routing the user to enter the prompt specific to each role?
+// const addEmpl = () => {
+//     return inquirer.prompt([
+//     {
+//         type: 'input',
+//         name: 'name',
+//         message: 'Provide the Employees full name?'
+//     },
+//     {
+//         type: 'input',
+//         name: 'id',
+//         message: 'Enter the Employees employee id.'
+//     },
+//     {
+//         type: 'input',
+//         name: 'email',
+//         message: 'Enter the Employee email address.'
+//     },
+// ]);
+// };
 // TODO Question to add a new MGMT
 const addMgmt = () => {
     return inquirer.prompt([
@@ -105,24 +111,11 @@ const addMgmt = () => {
         name: 'officeNumber',
         message: 'Provide the Managers office number.'
     }
-]);
+]).then(answers => {
+    let mgmt = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
+    employee.push(mgmt)
+})
 };
-
-//TODO Create function to add new intern.
-function newIntern () {
-
-}
-
-//TODO Create function to add new Engineer.
-function newEngineer() {
-
-}
-//TODO Create function to add new Employee.
-function newEmployee() {
-
-}
-//TODO Create function to add new MGMT.
-
 
 // TODO Create a function to write HTML file
 // function writeToFile(fileName, data) {
@@ -131,7 +124,7 @@ function newEmployee() {
 
 // TODO function to call init(); -- ref W9-#28miniProject
 const init = () => {
-    addIntern()
+    employee()
     .then((answers) => writeFile('index.html', renderHTML(answers)))
     .then(() => console.log('Successfully wrote to index.html'))
     .catch((err) => console.error(err));
